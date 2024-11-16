@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Skin Sync</string>
+    <string name="capture_btn_desc">Image Capture Button</string>
 </resources>

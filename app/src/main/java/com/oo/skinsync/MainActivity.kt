@@ -30,5 +30,10 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, CameraActivity::class.java)
             startActivity(intent)
         }
+
+        binding.profileButton.setOnClickListener{
+            val intent = Intent(this, ProfileActivity::class.java)
+            startActivity(intent)
+        }
     }
 }
