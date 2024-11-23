@@ -25,12 +25,6 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // Set an onClickListener on the button
-        binding.cameraButton.setOnClickListener{
-            val intent = Intent(this, CameraActivity::class.java)
-            startActivity(intent)
-        }
-
         binding.profileButton.setOnClickListener{
             val intent = Intent(this, ProfileActivity::class.java)
             startActivity(intent)

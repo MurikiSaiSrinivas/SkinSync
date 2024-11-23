@@ -1,6 +1,7 @@
 package com.oo.skinsync
 
 import android.content.Context
+import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.widget.ImageView
@@ -28,6 +29,13 @@ class ProfileActivity : AppCompatActivity() {
 
         val sharedPreferences = getSharedPreferences("profile_prefs", Context.MODE_PRIVATE)
         val imageUriString = sharedPreferences.getString("profile_image_uri", null)
+
+
+        // Set an onClickListener on the button
+        binding.cameraButton.setOnClickListener{
+            val intent = Intent(this, CameraActivity::class.java)
+            startActivity(intent)
+        }
 
         if (imageUriString != null) {
             val imageUri = Uri.parse(imageUriString)

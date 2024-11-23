@@ -72,7 +72,6 @@ class CameraActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         progressBar = findViewById(R.id.loading_spinner)
-        hideLoadingSpinner()
 
         setupObservers()
         setupClickListeners()
@@ -221,15 +220,14 @@ class CameraActivity : AppCompatActivity() {
     }
 
     private fun showLoadingSpinner() {
-        Log.d(TAG, "Spinner should Visible")
+        Log.d("SpinnerDebug", "Visibility: ${progressBar.visibility}")
         progressBar.bringToFront()
-        binding.dimOverlay.bringToFront()
         progressBar.visibility = View.VISIBLE
         binding.dimOverlay.visibility = View.VISIBLE
     }
 
     private fun hideLoadingSpinner() {
-        Log.d(TAG, "Spinner should Hide")
+        Log.d("SpinnerDebug", "Visibility: ${progressBar.visibility}")
         progressBar.visibility = View.GONE
 //        binding.loadingSpinner.visibility = View.GONE
         binding.dimOverlay.visibility = View.GONE

@@ -73,9 +73,10 @@
     <ProgressBar
         android:id="@+id/loading_spinner"
         style="?android:attr/progressBarStyleLarge"
-        android:visibility="gone"
         android:indeterminate="true"
         android:elevation="10dp"
+        android:visibility="visible"
+        android:background="#FF0000"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent"
