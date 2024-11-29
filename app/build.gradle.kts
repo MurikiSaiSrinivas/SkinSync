@@ -83,4 +83,6 @@
         implementation(libs.logging.interceptor)
     //    implementation ("com.github.nieldw:colormath:1.0.1")
 
+        implementation(libs.generativeai)
+
     }

@@ -11,36 +11,81 @@
         android:id="@+id/profile_button"
         android:layout_width="46dp"
         android:layout_height="46dp"
+        android:layout_marginTop="42dp"
         android:background="?attr/selectableItemBackground"
         android:contentDescription="@string/capture_btn_desc"
         android:elevation="2dp"
         android:scaleType="fitCenter"
         android:src="@drawable/profile"
-        tools:layout_editor_absoluteX="347dp"
-        tools:layout_editor_absoluteY="30dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.956"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.003" />
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/place_name_text_field"
+        android:id="@+id/location_filed"
         android:layout_width="350dp"
         android:layout_height="wrap_content"
-        tools:layout_editor_absoluteX="31dp"
-        tools:layout_editor_absoluteY="112dp">
+        android:layout_marginTop="24dp"
+        android:layout_marginBottom="24dp"
+        app:layout_constraintBottom_toTopOf="@+id/gen_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/profile_button">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/location_filed_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="hint" />
+            android:hint="Enter the location" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/gen_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:text="Get the Suggestion"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.50"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/place_name_text_field" />
+        app:layout_constraintTop_toBottomOf="@+id/location_filed" />
+
+    <LinearLayout
+        android:id="@+id/color_container"
+        android:layout_width="333dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="24dp"
+        android:orientation="horizontal"
+        android:scrollbars="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/gen_button"
+        app:layout_constraintVertical_bias="0.0">
+
+    </LinearLayout>
+
+    <ScrollView
+        android:id="@+id/response_scroll"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:layout_marginBottom="316dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/color_container"
+        app:layout_constraintVertical_bias="0.14999998">
+
+        <TextView
+            android:id="@+id/response_text"
+            android:layout_width="333dp"
+            android:layout_height="wrap_content"
+            android:text="TextView" />
+    </ScrollView>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

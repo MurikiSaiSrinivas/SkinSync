@@ -23,10 +23,9 @@
         android:id="@+id/cheek_color"
         android:layout_width="38dp"
         android:layout_height="24dp"
-        android:layout_marginTop="124dp"
+        android:layout_marginStart="88dp"
+        android:layout_marginTop="32dp"
         android:text="Skin :"
-        app:layout_constraintEnd_toStartOf="@+id/cheek_color_view"
-        app:layout_constraintHorizontal_bias="0.706"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/profile_image_view" />
 
@@ -34,78 +33,81 @@
         android:id="@+id/lip_color"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="88dp"
+        android:layout_marginTop="24dp"
         android:text="Lip:"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/lip_color_view"
-        app:layout_constraintHorizontal_bias="0.616"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cheek_color"
-        app:layout_constraintVertical_bias="0.093" />
+        app:layout_constraintTop_toBottomOf="@+id/cheek_color" />
 
     <com.oo.skinsync.CircleColorView
         android:id="@+id/cheek_color_view"
         android:layout_width="30dp"
         android:layout_height="30dp"
-        android:layout_marginTop="120dp"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="26dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/cheek_color"
         app:layout_constraintTop_toBottomOf="@+id/profile_image_view"
-        tools:layout_editor_absoluteX="147dp" />
+        app:layout_constraintVertical_bias="0.011" />
 
     <com.oo.skinsync.CircleColorView
         android:id="@+id/lip_color_view"
         android:layout_width="30dp"
         android:layout_height="30dp"
+        android:layout_marginStart="96dp"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/lip_color"
         app:layout_constraintTop_toBottomOf="@+id/cheek_color_view"
-        app:layout_constraintVertical_bias="0.051"
-        tools:layout_editor_absoluteX="147dp" />
+        app:layout_constraintVertical_bias="0.050000012" />
 
     <com.oo.skinsync.CircleColorView
         android:id="@+id/l_eye_color_view"
         android:layout_width="30dp"
         android:layout_height="30dp"
-        android:layout_marginTop="120dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.345"
+        android:layout_marginStart="64dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/l_eye_color"
-        app:layout_constraintTop_toBottomOf="@+id/profile_image_view" />
+        app:layout_constraintTop_toBottomOf="@+id/lip_color_view"
+        app:layout_constraintVertical_bias="0.050000012" />
 
     <com.oo.skinsync.CircleColorView
         android:id="@+id/r_eye_color_view"
         android:layout_width="30dp"
         android:layout_height="30dp"
-        android:layout_marginEnd="72dp"
+        android:layout_marginStart="56dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/r_eye_color"
         app:layout_constraintTop_toBottomOf="@+id/l_eye_color_view"
-        app:layout_constraintVertical_bias="0.048" />
+        app:layout_constraintVertical_bias="0.050000012" />
 
     <TextView
         android:id="@+id/l_eye_color"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="124dp"
+        android:layout_marginStart="88dp"
+        android:layout_marginTop="24dp"
         android:text="Left Eye:"
-        app:layout_constraintStart_toEndOf="@+id/cheek_color_view"
-        app:layout_constraintTop_toBottomOf="@+id/profile_image_view" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lip_color" />
 
     <TextView
         android:id="@+id/r_eye_color"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="88dp"
+        android:layout_marginTop="24dp"
         android:text="Right Eye:"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/r_eye_color_view"
-        app:layout_constraintHorizontal_bias="0.581"
-        app:layout_constraintStart_toEndOf="@+id/lip_color_view"
-        app:layout_constraintTop_toBottomOf="@+id/l_eye_color"
-        app:layout_constraintVertical_bias="0.095" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/l_eye_color" />
 
     <ImageView
         android:id="@+id/profile_image_view"
         android:layout_width="242dp"
         android:layout_height="232dp"
-        app:srcCompat="@drawable/capture_btn"
-        tools:layout_editor_absoluteX="67dp"
-        tools:layout_editor_absoluteY="164dp" />
+        android:layout_marginBottom="228dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.52"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/capture_btn" />
 </androidx.constraintlayout.widget.ConstraintLayout>
