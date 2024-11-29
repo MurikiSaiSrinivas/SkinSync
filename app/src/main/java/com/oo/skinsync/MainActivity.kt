@@ -43,10 +43,11 @@ class MainActivity : AppCompatActivity() {
         }
 
 
+        // Gemini api key here
         binding.genButton.setOnClickListener{
             val generativeModel = GenerativeModel(
                 modelName = "gemini-1.5-flash",
-                apiKey = "AIzaSyDz1jaVMwfvBHJNNHj4lfr7wvXJNmfD2tY"
+                apiKey = "gemini-api-key"
             )
 
             val inputField = binding.locationFiledText.text.toString()
