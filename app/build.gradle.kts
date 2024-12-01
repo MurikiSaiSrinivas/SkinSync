@@ -2,6 +2,24 @@
         alias(libs.plugins.android.application)
         alias(libs.plugins.kotlin.android)
         alias(libs.plugins.undercouch.download)
+        id("com.google.android.libraries.mapsplatform.secrets-gradle-plugin")
+    }
+
+    secrets {
+        // To add your Maps API key to this project:
+        // 1. If the secrets.properties file does not exist, create it in the same folder as the local.properties file.
+        // 2. Add this line, where YOUR_API_KEY is your API key:
+        //        MAPS_API_KEY=YOUR_API_KEY
+        propertiesFileName = "secrets.properties"
+
+        // A properties file containing default secret values. This file can be
+        // checked in version control.
+        defaultPropertiesFileName = "local.properties"
+
+        // Configure which keys should be ignored by the plugin by providing regular expressions.
+        // "sdk.dir" is ignored by default.
+        ignoreList.add("keyToIgnore") // Ignore the key "keyToIgnore"
+        ignoreList.add("sdk.*")       // Ignore all keys matching the regexp "sdk.*"
     }
 
     android {
@@ -16,6 +34,10 @@
             versionName = "1.0"
 
             testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+
+//            buildConfigField("String", "SERP_API_KEY", "\"${project.properties["SERP_API_KEY"] as String}\"")
+            buildConfigField("String", "GEMINI_API_KEY", "\"${findProperty("SERP_API_KEY")}\"")
+            println("SERP_API_KEY: ${findProperty("SERP_API_KEY")}")
         }
 
         buildTypes {
@@ -36,6 +58,7 @@
         }
         buildFeatures {
             viewBinding = true
+            buildConfig = true
         }
     }
 
@@ -50,10 +73,13 @@
         implementation(libs.material)
         implementation(libs.androidx.activity)
         implementation(libs.androidx.constraintlayout)
+
         implementation(libs.play.services.mlkit.face.detection)
+
         testImplementation(libs.junit)
         androidTestImplementation(libs.androidx.junit)
         androidTestImplementation(libs.androidx.espresso.core)
+
         implementation(libs.androidx.camera.core)
         // CameraX Camera2 extensions
         implementation(libs.androidx.camera.camera2)
@@ -63,26 +89,23 @@
         implementation(libs.androidx.camera.view)
         // CameraX Extension class
         implementation(libs.androidx.camera.extensions)
+
         // WindowManager
         implementation(libs.androidx.window)
-
         // MediaPipe Library
         implementation(libs.tasks.vision)
-
         // Json Serializer
         implementation(libs.gson)
-
         implementation(libs.kotlinx.coroutines.core)
         implementation(libs.androidx.lifecycle.viewmodel.ktx)
         implementation(libs.androidx.lifecycle.runtime.ktx)
-
         // Retrofit
         implementation(libs.retrofit)
         implementation(libs.converter.gson)
         // OkHttp (optional, for logging)
         implementation(libs.logging.interceptor)
-    //    implementation ("com.github.nieldw:colormath:1.0.1")
-
         implementation(libs.generativeai)
-
+        implementation(libs.androidx.cardview)
+        implementation(libs.glide)
+        annotationProcessor(libs.compiler)
     }

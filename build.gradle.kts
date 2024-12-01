@@ -5,3 +5,8 @@ plugins {
     alias(libs.plugins.undercouch.download) apply false
 
 }
+buildscript {
+    dependencies {
+        classpath(libs.secrets.gradle.plugin)
+    }
+}

@@ -5,7 +5,6 @@ import android.graphics.Color
 import android.graphics.Paint
 import android.util.AttributeSet
 import android.view.View
-import androidx.core.content.ContextCompat
 
 class CircleColorView @JvmOverloads constructor(
     context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
@@ -17,8 +16,8 @@ class CircleColorView @JvmOverloads constructor(
 
     private var borderPaint = Paint().apply {
         style = Paint.Style.STROKE // To draw a border
-        strokeWidth = 3f // Set the border width
-        color = Color.parseColor("#f584f5");
+        strokeWidth = 5f // Set the border width
+        color = Color.parseColor("#f584f5")
     }
 
     var color: Int = Color.WHITE
@@ -36,6 +35,7 @@ class CircleColorView @JvmOverloads constructor(
 
     override fun onDraw(canvas: Canvas) {
         super.onDraw(canvas)
+
         val radius = Math.min(width, height) / 2f
 
         // Draw the circle with the selected color
@@ -43,7 +43,7 @@ class CircleColorView @JvmOverloads constructor(
 
         // If the view is active, draw the border around the circle
         if (isActive) {
-            canvas.drawCircle(width / 2f, height / 2f, radius, borderPaint)
+            canvas.drawCircle(width / 2f, height / 2f, radius-3f, borderPaint)
         }
     }
 }

@@ -11,7 +11,6 @@ import android.os.Bundle
 import android.provider.MediaStore
 import android.util.Log
 import android.view.View
-import android.widget.ProgressBar
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.result.contract.ActivityResultContracts
@@ -33,6 +32,9 @@ import com.oo.skinsync.databinding.ActivityCameraBinding
 import com.oo.skinsync.extensions.saveFaceAnalysisResult
 import com.oo.skinsync.models.CameraState
 import com.oo.skinsync.viewmodels.CameraViewModel
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import java.text.SimpleDateFormat
 import java.util.Locale
@@ -48,7 +50,6 @@ class CameraActivity : AppCompatActivity() {
     private lateinit var faceLandmarker: FaceLandmarker
     private var cameraSelector = CameraSelector.DEFAULT_BACK_CAMERA
     private lateinit var cameraProvider: ProcessCameraProvider
-    private lateinit var progressBar: ProgressBar
 
     private val sharedPreferences by lazy {
         getSharedPreferences("profile_prefs", Context.MODE_PRIVATE)
@@ -71,7 +72,6 @@ class CameraActivity : AppCompatActivity() {
         binding = ActivityCameraBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        progressBar = findViewById(R.id.loading_spinner)
 
         setupObservers()
         setupClickListeners()
@@ -83,7 +83,10 @@ class CameraActivity : AppCompatActivity() {
             viewModel.cameraState.collect { state ->
                 when (state) {
                     is CameraState.Preview -> Unit // Handle preview state
-                    is CameraState.ImageCapture -> takePhoto()
+                    is CameraState.ImageCapture -> {
+                        showLoadingSpinner()
+                        takePhoto()
+                    }
                     is CameraState.Error -> handleError(state.message)
                 }
             }
@@ -220,22 +223,20 @@ class CameraActivity : AppCompatActivity() {
     }
 
     private fun showLoadingSpinner() {
-        Log.d("SpinnerDebug", "Visibility: ${progressBar.visibility}")
-        progressBar.bringToFront()
-        progressBar.visibility = View.VISIBLE
         binding.dimOverlay.visibility = View.VISIBLE
+        binding.loadingSpinner.visibility = View.VISIBLE
     }
 
     private fun hideLoadingSpinner() {
-        Log.d("SpinnerDebug", "Visibility: ${progressBar.visibility}")
-        progressBar.visibility = View.GONE
-//        binding.loadingSpinner.visibility = View.GONE
-        binding.dimOverlay.visibility = View.GONE
+        CoroutineScope(Dispatchers.Main).launch {
+            delay(5000)
+            binding.dimOverlay.visibility = View.INVISIBLE
+            binding.loadingSpinner.visibility = View.INVISIBLE
+        }
     }
 
     private fun detectFaceLandmarks(imageUri: Uri) {
 
-        showLoadingSpinner()
         // Convert URI to Bitmap
         val bitmap = MediaStore.Images.Media.getBitmap(contentResolver, imageUri)
 
