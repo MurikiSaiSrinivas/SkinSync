@@ -41,8 +41,8 @@ class MainActivity : AppCompatActivity() {
         getSharedPreferences("profile_prefs", Context.MODE_PRIVATE)
     }
     var activeCircle: CircleColorView? = null
-    private val serpApiKey = "4df87fb2234b035494563822c240ff6a67301e42c4864cbf346c84ecdad1ec86"
-    private val geminiApiKey = "AIzaSyDz1jaVMwfvBHJNNHj4lfr7wvXJNmfD2tY"
+    private val serpApiKey = "Your Serp API key goes here"
+    private val geminiApiKey = "Your Gemini API key goes here"
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -62,12 +62,6 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, ProfileActivity::class.java)
             startActivity(intent)
         }
-
-        // Don't uncomment it or remove it
-        // To clear the sharedPreferences it gives the way of using it on new mobile.
-//        val editor = sharedPreferences.edit()
-//        editor.clear() // Clears all data
-//        editor.apply()
 
         val imageUriString = sharedPreferences.getString("profile_image_uri", null)
         if (imageUriString != null) {
@@ -117,6 +111,7 @@ class MainActivity : AppCompatActivity() {
                         "Ensure that the color suggestions are harmonious with the given attributes and the location's aesthetic. For each suggested color, provide a list of dress names that match the color, gender ("+sharedPreferences.getString("sex","Female") +"), and age ("+sharedPreferences.getString("age","23")+"). These dress names should represent clothing items from popular online shopping sites such as Amazon, Myntra, Zara, and others. Each dress name should be concise and descriptive (e.g., 'Elegant Evening Gown').The reasons for color choices should be concise, highlighting why each color is visually suitable for the photoshoot."
 
                 Log.d("MainActivity", prompt)
+                binding.colorContainer.removeAllViews()
                 MainScope().launch {
                     val response = generativeModel.generateContent(prompt)
                     val bool = false
