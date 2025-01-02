@@ -64,12 +64,5 @@ cd skin-sync
 - **Frameworks**: Android Studio, TensorFlow, Mediapipe
 - **APIs**: Google Gemini API, SerpApi
 
-## License
-This project is licensed under the MIT License. See the `LICENSE` file for details.
-
 ## Contributing
 Feel free to submit issues and enhancement requests, or fork this repository to contribute.
-
----
-
-Let me know if you want to include additional details or make edits!
