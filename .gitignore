@@ -1,0 +1,36 @@
+# Repo root = "SkinSync Project". The Android project lives in SkinSync/.
+# Patterns are recursive (**/) so they catch every Gradle module too.
+
+# ---- Build outputs ----
+**/build/
+**/.gradle/
+.gradle/
+**/.cxx/
+**/.externalNativeBuild/
+**/captures/
+
+# ---- IDE ----
+.idea/
+**/.idea/
+*.iml
+*.ipr
+*.iws
+.vscode/
+
+# ---- Local / machine ----
+**/local.properties
+local.properties
+.DS_Store
+Thumbs.db
+
+# ---- Secrets — NEVER commit (rule #2) ----
+**/google-services.json
+google-services.json
+secrets.properties
+*.keystore
+*.jks
+*.p12
+*.jceks
+
+# ---- Claude personal local settings (keep out of VCS) ----
+.claude/settings.local.json

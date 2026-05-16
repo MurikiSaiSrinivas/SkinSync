@@ -1,0 +1,5 @@
+{
+  "comment": "No composite indexes needed. The looks query orders by a single field (createdAt), which Firestore indexes automatically. Composite indexes require >= 2 fields; favorites-first ordering is done in-memory in HistoryViewModel.",
+  "indexes": [],
+  "fieldOverrides": []
+}

@@ -1,0 +1,17 @@
+// :domain — PURE KOTLIN. No android.* imports (rule #4, iOS-shareable).
+plugins {
+    alias(libs.plugins.kotlin.jvm)
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
+}
+
+dependencies {
+    implementation(libs.kotlinx.coroutines.core)
+
+    testImplementation(libs.junit)
+    testImplementation(libs.kotlinx.coroutines.test)
+    testImplementation(libs.turbine)
+}
