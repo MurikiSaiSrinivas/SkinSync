@@ -37,6 +37,9 @@ dependencies {
     implementation(libs.androidx.camera.camera2)
     implementation(libs.androidx.camera.lifecycle)
     implementation(libs.androidx.camera.view)
+    // ProcessCameraProvider.getInstance() returns Guava's ListenableFuture,
+    // which CameraX only exposes 'implementation' — make it accessible here.
+    implementation(libs.guava)
 
     implementation(libs.hilt.android)
     ksp(libs.hilt.compiler)

@@ -4,6 +4,8 @@ import com.oo.skinsync.domain.ColorRec
 import com.oo.skinsync.domain.SavedLook
 import com.oo.skinsync.domain.Suggestion
 import kotlinx.serialization.Serializable
+import kotlinx.serialization.decodeFromString
+import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
 
 /**

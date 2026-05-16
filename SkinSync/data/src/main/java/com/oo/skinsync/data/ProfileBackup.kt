@@ -4,6 +4,8 @@ import com.oo.skinsync.domain.FaceColors
 import com.oo.skinsync.domain.Gender
 import com.oo.skinsync.domain.Profile
 import kotlinx.serialization.Serializable
+import kotlinx.serialization.decodeFromString
+import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
 
 /**

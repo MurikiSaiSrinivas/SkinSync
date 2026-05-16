@@ -14,8 +14,9 @@ serialization = "1.7.3"
 datastore = "1.1.1"
 coil = "3.0.4"
 camerax = "1.4.1"
+guava = "33.3.1-android"
 mediapipeTasksVision = "0.10.18"
-firebaseBom = "33.7.0"
+firebaseBom = "33.13.0"
 googleServices = "4.4.2"
 crashlyticsPlugin = "3.0.2"
 junit = "4.13.2"
@@ -57,11 +58,12 @@ androidx-camera-core = { module = "androidx.camera:camera-core", version.ref = "
 androidx-camera-camera2 = { module = "androidx.camera:camera-camera2", version.ref = "camerax" }
 androidx-camera-lifecycle = { module = "androidx.camera:camera-lifecycle", version.ref = "camerax" }
 androidx-camera-view = { module = "androidx.camera:camera-view", version.ref = "camerax" }
+guava = { module = "com.google.guava:guava", version.ref = "guava" }
 
 mediapipe-tasks-vision = { module = "com.google.mediapipe:tasks-vision", version.ref = "mediapipeTasksVision" }
 
 firebase-bom = { module = "com.google.firebase:firebase-bom", version.ref = "firebaseBom" }
-firebase-ai = { module = "com.google.firebase:firebase-ai" }
+firebase-ai = { module = "com.google.firebase:firebase-ai", version = "16.0.0" }
 firebase-auth = { module = "com.google.firebase:firebase-auth" }
 firebase-firestore = { module = "com.google.firebase:firebase-firestore" }
 firebase-appcheck-playintegrity = { module = "com.google.firebase:firebase-appcheck-playintegrity" }
