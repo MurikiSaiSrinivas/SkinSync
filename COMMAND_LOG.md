@@ -66,3 +66,5 @@ BUILDFIX | :domain + :core:color build.gradle.kts -> kotlin{compilerOptions{jvmT
 NOTE | terminal `.\gradlew test` fails: JAVA_HOME unset / keytool not on PATH | env issue, not code; Android Studio uses its bundled JBR. Run tests via IDE or set $env:JAVA_HOME to Android Studio\jbr for the shell session
 BUILDFIX | LookMapping.kt + ProfileBackup.kt: add import kotlinx.serialization.encodeToString/decodeFromString | missing reified extension import -> compiler picked wrong overload (Cannot infer type / No value for 'value')
 BUILDFIX | catalog: add guava 33.3.1-android; feature:capture + feature:wardrobe implementation(libs.guava) | CameraX getInstance() returns Guava ListenableFuture not on module classpath (camera exposes it implementation, not api)
+GIT | commit 28d00db (build fixes so far) | user asked to commit before next fix
+BUILDFIX | new app/di/UseCaseModule.kt: @Provides for all 11 domain use cases from bound repos | Dagger/MissingBinding — :domain has no @Inject (pure Kotlin, rule #4); ViewModels inject use cases so Hilt needs @Provides
