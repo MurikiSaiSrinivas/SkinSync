@@ -68,3 +68,7 @@ BUILDFIX | LookMapping.kt + ProfileBackup.kt: add import kotlinx.serialization.e
 BUILDFIX | catalog: add guava 33.3.1-android; feature:capture + feature:wardrobe implementation(libs.guava) | CameraX getInstance() returns Guava ListenableFuture not on module classpath (camera exposes it implementation, not api)
 GIT | commit 28d00db (build fixes so far) | user asked to commit before next fix
 BUILDFIX | new app/di/UseCaseModule.kt: @Provides for all 11 domain use cases from bound repos | Dagger/MissingBinding — :domain has no @Inject (pure Kotlin, rule #4); ViewModels inject use cases so Hilt needs @Provides
+MILESTONE | commit 87c6bf7; app INSTALLS + RUNS on device (2026-05-16) | core build chain green; deferred items remain
+NOTE | created KNOWN_ISSUES.md (2 failing color tests, KSP/Hilt + Gradle9 + 16KB warnings, UI overhaul backlog, B7/B9, pending force-push) | user works on it next session
+RULE | added to CLAUDE.md checklist + memory: every feature must write test + RUN test + verify build green before moving on | user instruction 2026-05-16
+DEFER | NOT fixing now per user ("fix later"); only documented | next session starts with KNOWN_ISSUES.md §1

@@ -59,11 +59,16 @@ device). Never claim tests "pass" here — only that they are written and how to
 
 ## ✅ After-every-feature checklist (run this each time)
 
-1. Tests written for the new code (pure logic = JVM unit; ViewModel = fake+Turbine).
-2. No `android.*` in `:domain`/`:core:color`. No keys anywhere. No `delay()` UI.
-3. New screen handles all four `UiState` cases.
-4. Reused existing utilities; no duplicate/dead code.
-5. Wired: `settings.gradle.kts` includes the module; `:app` deps + nav route added.
-6. `BLUEPRINT.md` checkbox ticked for the completed item.
-7. `COMMAND_LOG.md` appended with what changed and why.
-8. Re-read this file; confirm still aligned with locked decisions.
+1. **Write tests** for the new code (pure logic = JVM unit; ViewModel = fake+Turbine).
+2. **Run the tests AND verify the whole project still builds** before moving on
+   — `./gradlew test` (or the module's `:test`) and a build/assemble. Do not
+   call a feature done while any test fails or the build is red. If the harness
+   env can't run them, say so explicitly and have the user run `./gradlew test`
+   + build, and wait for a green result before continuing. (User rule, 2026-05-16.)
+3. No `android.*` in `:domain`/`:core:color`. No keys anywhere. No `delay()` UI.
+4. New screen handles all four `UiState` cases.
+5. Reused existing utilities; no duplicate/dead code.
+6. Wired: `settings.gradle.kts` includes the module; `:app` deps + nav route added.
+7. `BLUEPRINT.md` checkbox ticked; `KNOWN_ISSUES.md` updated if anything deferred.
+8. `COMMAND_LOG.md` appended with what changed and why.
+9. Re-read this file; confirm still aligned with locked decisions.
